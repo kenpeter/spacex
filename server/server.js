@@ -25,6 +25,13 @@ const getLaunchPadFullNamesHandler = (req, resp) => {
   return resp(data);
 }
 
+//
+const getLaunchYearsHandler = (req, resp) => {
+  console.log('GET /launchYears');
+  const data = uniqueLaunchYear();
+  return resp(data);
+}
+
 /*
 * 4 filters match
 http://localhost:8001/launchAndPad?keyword=Intelsat&launchpadId=ksc_lc_39a&minYear=2006&maxYear=2017
@@ -63,9 +70,18 @@ const getLaunchAndPadHandler = (req, resp) => {
 
 const uniqueLaunchPadFullNames = () => {
   let out = [];
-  const laun = launchpads;
+  const pad = launchpads;
+  for (let i = 0; i < pad.length; i += 1) {
+    out = [...new Set([...out, pad[i].full_name])];
+  }
+  return out;
+}
+
+const uniqueLaunchYear = () => {
+  let out = [];
+  const laun = launches;
   for (let i = 0; i < laun.length; i += 1) {
-    out = [...new Set([...out, laun[i].full_name])];
+    out = [...new Set([...out, new Date(laun[i].launch_date_local).getFullYear()])];
   }
   return out;
 }
@@ -235,8 +251,14 @@ server.route({
 
 server.route({
   method: 'GET',
-  path: '/lauchPadFullNames', 
+  path: '/launchPadFullNames', 
   handler: getLaunchPadFullNamesHandler
+});
+
+server.route({
+  method: 'GET',
+  path: '/launchYears', 
+  handler: getLaunchYearsHandler
 });
 
 server.start((err) => {
