@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import { productsReducer } from './products';
-import { filterReducer } from './filter';
+import { launchesReducer } from './launches';
+import { launchPadFullNames } from './launchPadFullNames';
+import { launchYears } from './launchYears';
 
 const reducers = combineReducers({
-  productsReducer,
-  filterReducer
+  launchesReducer,
+  launchPadFullNames,
+  launchYears
 });
 
 export default reducers;
