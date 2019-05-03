@@ -1,0 +1,48 @@
+[
+  {
+    "flight_number": 44,
+    "launch_date_local": "2017-07-05T19:35:00-04:00",
+    "rocket": {
+      "rocket_id": "falcon9",
+      "rocket_name": "Falcon 9",
+      "rocket_type": "FT"
+    },
+    "core_serial": "B1037",
+    "cap_serial": null,
+    "telemetry": {
+      "flight_club": null
+    },
+    "launch_site": {
+      "site_id": "ksc_lc_39a",
+      "site_name": "KSC LC 39A"
+    },
+    "payloads": [
+      {
+        "payload_id": "Intelsat 35e",
+        "customers": [
+          "Intelsat"
+        ],
+        "payload_type": "Satellite",
+        "payload_mass_kg": 6761,
+        "payload_mass_lbs": 14905.45,
+        "orbit": "GTO"
+      }
+    ],
+    "launch_success": true,
+    "reused": false,
+    "land_success": false,
+    "landing_type": null,
+    "landing_vehicle": null,
+    "links": {
+      "mission_patch": "http://i.imgur.com/8URp6ea.png",
+      "reddit_campaign": "https://www.reddit.com/r/spacex/comments/6fw4yy/",
+      "reddit_launch": "https://www.reddit.com/r/spacex/comments/6kt2re/",
+      "reddit_recovery": null,
+      "reddit_media": "https://www.reddit.com/r/spacex/comments/6kt3fe/",
+      "presskit": "http://www.spacex.com/sites/spacex/files/intelsat35epresskit.pdf",
+      "article_link": "https://en.wikipedia.org/wiki/Intelsat_35e",
+      "video_link": "https://www.youtube.com/watch?v=MIHVPCj25Z0"
+    },
+    "details": "Due to the constraints of sending a heavy satellite (~6,000 kg) to GTO, the rocket will fly in its expendable configuration and the first-stage booster will not be recovered."
+  }
+]
