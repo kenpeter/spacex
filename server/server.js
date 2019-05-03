@@ -46,10 +46,6 @@ const getLaunchAndPadHandler = (req, resp) => {
   const launchpadId = req.query.launchpadId;
   const minYear = req.query.minYear;
   const maxYear = req.query.maxYear;
-
-  //test
-  //console.log('keyword', keyword);
-
   const out = searchLauchAndPad(data, keyword, launchpadId, minYear, maxYear);
 
   return resp(out);
@@ -74,8 +70,6 @@ const searchLauchAndPad = (data, keyword, launchpadId, minYear, maxYear) => {
         console.log('keyword filter pass');
 
       } else {
-        //test
-        console.log('keyword filter fail');
         continue;
       }
     }
@@ -128,8 +122,6 @@ const searchLauchAndPad = (data, keyword, launchpadId, minYear, maxYear) => {
       }
     }
 
-    // final
-    console.log('push', item);
     out.push(item);
   }
 
@@ -142,11 +134,11 @@ const getFullYear = (time) => {
 }
 
 const isInPayloadId = (payloads, keyword) => {
+  const arr = payloads.filter((p) => {
+    const pId = p.payload_id.toLowerCase();
+    return pId.indexOf(keyword) > -1 ? true: false;
+  });
 
-  // test
-  console.log('isInPayloadId', payloads, keyword);
-
-  const arr = payloads.filter((p) => {p.payload_id.toLowerCase().indexOf(keyword)});
   return arr.length > 0 ? true : false; 
 }
 
@@ -158,12 +150,12 @@ const isUndefined = (input) => {
 }
 
 const mergeLaunchAndPad = () => {
-  //const lau = launches;
-  //const pad = launchpads;
+  const lau = launches;
+  const pad = launchpads;
 
   // test only
-  const lau = require('./resources/launchesTest.json');
-  const pad = require('./resources/launchpadsTest.json');
+  //const lau = require('./resources/launchesTest.json');
+  //const pad = require('./resources/launchpadsTest.json');
 
   let mergeArr = [];
   for(let i=0; i<lau.length; i++) {
