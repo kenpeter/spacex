@@ -33,8 +33,10 @@ http://localhost:8001/launchAndPad?launchpadId=ksc_lc_39a&minYear=2006&maxYear=2
 http://localhost:8001/launchAndPad?launchpadId=ksc_lc_39a&minYear=2017&maxYear=2018
 http://localhost:8001/launchAndPad?launchpadId=ksc_lc_39a&minYear=2017
 http://localhost:8001/launchAndPad?launchpadId=ksc_lc_39a&minYear=2018
-*/
 
+* flight number
+http://localhost:8001/launchAndPad?keyword=10
+*/
 const getLaunchAndPadHandler = (req, resp) => {
   console.log('GET /launchAndPad');
 
@@ -61,12 +63,10 @@ const searchLauchAndPad = (data, keyword, launchpadId, minYear, maxYear) => {
       // so no filter
     } else {
       if(
-        item.flight_number === keyword.toLowerCase() || 
+        isInFlightNumber(item.flight_number, keyword) || 
         item.rocket.rocket_name.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ||
-        isInPayloadId(item.payloads, keyword.toLowerCase())
+        isInPayloadId(item.payloads, keyword)
       ) {
-        // next filter
-        // test
         console.log('keyword filter pass');
 
       } else {
@@ -81,8 +81,6 @@ const searchLauchAndPad = (data, keyword, launchpadId, minYear, maxYear) => {
       if(
         item.launch_site.site_id === launchpadId
       ) {
-        // next filter
-        // test
         console.log('site_id filter pass');
 
       } else {
@@ -97,10 +95,7 @@ const searchLauchAndPad = (data, keyword, launchpadId, minYear, maxYear) => {
       if(
         getFullYear(item.launch_date_local) >= minYear
       ) {
-        // next filter
-        // test
         console.log('min year filter pass');
-
       } else {
         continue;
       }
@@ -113,8 +108,6 @@ const searchLauchAndPad = (data, keyword, launchpadId, minYear, maxYear) => {
       if(
         getFullYear(item.launch_date_local) <= maxYear
       ) {
-        // next filter
-        // test
         console.log('max year filter pass');
 
       } else {
@@ -133,13 +126,28 @@ const getFullYear = (time) => {
   return year;
 }
 
+const isInFlightNumber = (flight_number, keyword) => {
+  if(!isNaN(keyword)) {
+    // It is number, flight_number is text
+    return flight_number == keyword ? true : false;
+  } else {
+    return false;
+  }
+}
+
 const isInPayloadId = (payloads, keyword) => {
   const arr = payloads.filter((p) => {
-    const pId = p.payload_id.toLowerCase();
-    return pId.indexOf(keyword) > -1 ? true: false;
+    let pId = p.payload_id.toLowerCase();
+    // e.g. if keyword === 9, we will have lots of matches, 
+    // because we doing partial match here
+    return pId.indexOf(keyword.toLowerCase()) > -1 ? true: false;
   });
 
   return arr.length > 0 ? true : false; 
+}
+
+const isInRocketName = (rocket_name, keyword) => {
+  return rocket_name.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ? true : false;
 }
 
 const isUndefined = (input) => {
