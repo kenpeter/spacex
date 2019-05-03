@@ -6,16 +6,24 @@ const jp = require('jsonpath');
 const launches = require('./resources/launches.json');
 const launchpads = require('./resources/launchpads.json');
 
+// 
 const getLaunchesHandler = (req, resp) => {
   console.log('GET /launches');
   return resp(launches);
-  
 };
 
+// 
 const getLaunchPadsHandler = (req, resp) => {
   console.log('GET /launchpads');
   return resp(launchpads);
 };
+
+//
+const getLaunchPadFullNamesHandler = (req, resp) => {
+  console.log('GET /lauchPadFullNames');
+  const data = uniqueLaunchPadFullNames();
+  return resp(data);
+}
 
 /*
 * 4 filters match
@@ -52,6 +60,15 @@ const getLaunchAndPadHandler = (req, resp) => {
 
   return resp(out);
 };
+
+const uniqueLaunchPadFullNames = () => {
+  let out = [];
+  const laun = launchpads;
+  for (let i = 0; i < laun.length; i += 1) {
+    out = [...new Set([...out, laun[i].full_name])];
+  }
+  return out;
+}
 
 const searchLauchAndPad = (data, keyword, launchpadId, minYear, maxYear) => {
   let out = [];
@@ -214,6 +231,12 @@ server.route({
   method: 'GET',
   path: '/launchAndPad', 
   handler: getLaunchAndPadHandler
+});
+
+server.route({
+  method: 'GET',
+  path: '/lauchPadFullNames', 
+  handler: getLaunchPadFullNamesHandler
 });
 
 server.start((err) => {
