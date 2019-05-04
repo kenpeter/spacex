@@ -67,17 +67,21 @@ class Filter extends Component {
         loadLaunchesAPIProps(this.state);
       });
     }
-
-    console.log(this.state);
   }
 
   render() {
     const { fullNameData, yearsData } = this.props;
-    const { launchpadId, minYear, maxYear} = this.state;
+    const { launchpadId, minYear, maxYear, isError, errors } = this.state;
 
     return (
       <Element name="scrollDestination" className="element">
         <div className="filter">
+          {isError === false ? 
+            '' 
+            : 
+            <p style={{backgroundColor: 'red'}}>{errors}</p>
+          }
+
           <InputComponent
             labelText={"Keywords"}
             placeHolderText={"eg Falcon"}
