@@ -70,10 +70,10 @@ export const loadLaunchesFail = errors => {
   };
 };
 
-export const loadLaunchesAPI = filterObj => {
+export const loadLaunchesAPI = item => {
   return dispatch => {
     dispatch(startLoadLaunches());
-    getLaunches(filterObj)
+    getLaunches(item)
       .then(res => {
         return res.json();
       })

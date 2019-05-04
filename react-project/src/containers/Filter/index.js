@@ -5,6 +5,7 @@ import { Element } from 'react-scroll';
 import { connect } from 'react-redux';
 import { getLaunchPadFullNamesAPI } from '../../reducers/launchPadFullNames';
 import { getLaunchYearsAPI } from '../../reducers/launchYears';
+import { loadLaunchesAPI } from '../../reducers/launches';
 import InputComponent from '../../components/InputComponent';
 import DropdownComponent from '../../components/DropdownComponent';
 
@@ -15,12 +16,18 @@ class Filter extends Component {
       keyword: '',
       launchpadId: '',
       minYear: '',
-      maxYear: ''
+      maxYear: '',
+      isError: false,
+      errors: ''
     };
   }
 
   componentDidMount() {
-    const { getLaunchPadFullNamesAPIProps, getLaunchYearsAPIProps } = this.props;
+    const { 
+      getLaunchPadFullNamesAPIProps, 
+      getLaunchYearsAPIProps
+    } = this.props;
+
     getLaunchPadFullNamesAPIProps();
     getLaunchYearsAPIProps();
   }
@@ -41,11 +48,32 @@ class Filter extends Component {
     this.setState({ maxYear: e.target.value });
   }
 
+  onApply = () => {
+    const { keyword, launchpadId, minYear, maxYear } = this.state;
+    const { loadLaunchesAPIProps } = this.props;
+
+    if(minYear !== '' && maxYear !== '' && minYear > maxYear) {
+      this.setState({
+        isError: true,
+        errors: 'minYear should less than maxYear'
+      });
+    } else {
+      // reset any error
+      this.setState({
+        isError: false,
+        errors: ''
+      }, () => {
+        // submit
+        loadLaunchesAPIProps(this.state);
+      });
+    }
+
+    console.log(this.state);
+  }
+
   render() {
     const { fullNameData, yearsData } = this.props;
     const { launchpadId, minYear, maxYear} = this.state;
-
-    console.log(this.state);
 
     return (
       <Element name="scrollDestination" className="element">
@@ -76,6 +104,8 @@ class Filter extends Component {
             value={maxYear}
             onChange={this.onChangeMaxYear}
           />
+
+          <button onClick={this.onApply}>Apply</button>
         </div>
       </Element>
     );
@@ -85,13 +115,14 @@ class Filter extends Component {
 const mapStateToProps = state => {
   return {
     fullNameData: state.launchPadFullNamesReducer.data,
-    yearsData: state.launchYearsReducer.data,
+    yearsData: state.launchYearsReducer.data
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   getLaunchPadFullNamesAPIProps: () => dispatch(getLaunchPadFullNamesAPI()),
-  getLaunchYearsAPIProps: () => dispatch(getLaunchYearsAPI())
+  getLaunchYearsAPIProps: () => dispatch(getLaunchYearsAPI()),
+  loadLaunchesAPIProps: (item) => dispatch(loadLaunchesAPI(item))
 });
 
 export default connect(
