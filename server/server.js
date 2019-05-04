@@ -69,22 +69,54 @@ const getLaunchAndPadHandler = (req, resp) => {
 };
 
 const uniqueLaunchPadFullNames = () => {
+  /*
   let out = [];
   const pad = launchpads;
   for (let i = 0; i < pad.length; i += 1) {
-    out = [...new Set([...out, pad[i].full_name])];
+    let item = {
+      key: pad[i].id,
+      val: pad[i].full_name
+    };
+    out = [...new Set([...out, item])];
   }
   return out;
+  */
+
+  let out = [];
+  const pad = launchpads;
+  const map = new Map();
+
+  for (let i = 0; i < pad.length; i += 1) {
+    let key = pad[i].id;
+    let val = pad[i].full_name;
+    let item = {
+      key,
+      val
+    };
+    map.set(key, item);
+  }
+
+  return out = [ ...map.values() ];
 }
 
 const uniqueLaunchYear = () => {
   let out = [];
   const laun = launches;
+  const map = new Map();
+
   for (let i = 0; i < laun.length; i += 1) {
-    out = [...new Set([...out, new Date(laun[i].launch_date_local).getFullYear()])];
+    let key = new Date(laun[i].launch_date_local).getFullYear();
+    let val = key;
+    let item = {
+      key,
+      val
+    };
+    map.set(key, item);
   }
-  return out;
+
+  return out = [ ...map.values() ];
 }
+
 
 const searchLauchAndPad = (data, keyword, launchpadId, minYear, maxYear) => {
   let out = [];

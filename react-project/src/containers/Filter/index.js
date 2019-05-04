@@ -3,24 +3,34 @@
 import React, { Component } from 'react';
 import { Element } from 'react-scroll';
 import { connect } from 'react-redux';
-import { launchPadFullNames } from '../../api/launchPadFullNames';
-import { launchYears } from '../../api/launchYears';
+import { getLaunchPadFullNamesAPI } from '../../reducers/launchPadFullNames';
+import { getLaunchYearsAPI } from '../../reducers/launchYears';
 import InputComponent from '../../components/InputComponent';
 import DropdownComponent from '../../components/DropdownComponent';
 
 class Filter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      keyword: '',
+      launchpadId: '',
+      minYear: '',
+      maxYear: ''
+    };
+  }
+
   componentDidMount() {
-    /*
-    const { launchPadFullNamesProps, launchYearsProps } = this.props;
-    launchPadFullNamesProps();
-    launchYearsProps();
-    */
+    const { getLaunchPadFullNamesAPIProps, getLaunchYearsAPIProps } = this.props;
+    getLaunchPadFullNamesAPIProps();
+    getLaunchYearsAPIProps();
+  }
+
+  onChangeKeyword = () => {
+
   }
 
   render() {
-    //test
-    //console.log(this.props.launchPadFullNameData, this.props.launchYearsData);
-
+    const { fullNameData, yearsData } = this.props;
 
     return (
       <Element name="scrollDestination" className="element">
@@ -35,7 +45,7 @@ class Filter extends Component {
 
           <DropdownComponent
             labelText={"Launch Pad"}
-            data={{}}
+            data={{fullNameData}}
             onChange={() => {
               console.log('launch pad');
             }}
@@ -43,7 +53,7 @@ class Filter extends Component {
 
           <DropdownComponent
             labelText={"Min Year"}
-            data={{}}
+            data={{yearsData}}
             onChange={() => {
               console.log('min year');
             }}
@@ -51,7 +61,7 @@ class Filter extends Component {
 
           <DropdownComponent
             labelText={"Max Year"}
-            data={{}}
+            data={{yearsData}}
             onChange={() => {
               console.log('max year');
             }}
@@ -64,14 +74,14 @@ class Filter extends Component {
 
 const mapStateToProps = state => {
   return {
-    launchPadFullNameData: state.launchPadFullNamesReducer.data,
-    launchYearsData: state.launchYearsReducer.data,
+    fullNameData: state.launchPadFullNamesReducer.data,
+    yearsData: state.launchYearsReducer.data,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  launchPadFullNamesProps: () => dispatch(launchPadFullNames()),
-  launchYearsProps: () => dispatch(launchYears())
+  getLaunchPadFullNamesAPIProps: () => dispatch(getLaunchPadFullNamesAPI()),
+  getLaunchYearsAPIProps: () => dispatch(getLaunchYearsAPI())
 });
 
 export default connect(
