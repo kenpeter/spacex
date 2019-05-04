@@ -25,12 +25,27 @@ class Filter extends Component {
     getLaunchYearsAPIProps();
   }
 
-  onChangeKeyword = () => {
+  onChangeKeyword = (e) => {
+    this.setState({ keyword: e.target.value });
+  }
 
+  onChangeLaunchpadId = (e) => {
+    this.setState({ launchpadId: e.target.value });
+  }
+
+  onChangeMinYear = (e) => {
+    this.setState({ minYear: e.target.value });
+  }
+
+  onChangeMaxYear = (e) => {
+    this.setState({ maxYear: e.target.value });
   }
 
   render() {
     const { fullNameData, yearsData } = this.props;
+    const { launchpadId, minYear, maxYear} = this.state;
+
+    console.log(this.state);
 
     return (
       <Element name="scrollDestination" className="element">
@@ -38,33 +53,28 @@ class Filter extends Component {
           <InputComponent
             labelText={"Keywords"}
             placeHolderText={"eg Falcon"}
-            onChange={() => {
-              console.log('input');
-            }}
+            onChange={this.onChangeKeyword}
           />
 
           <DropdownComponent
             labelText={"Launch Pad"}
-            data={{fullNameData}}
-            onChange={() => {
-              console.log('launch pad');
-            }}
+            data={fullNameData}
+            value={launchpadId}
+            onChange={this.onChangeLaunchpadId}
           />
 
           <DropdownComponent
             labelText={"Min Year"}
-            data={{yearsData}}
-            onChange={() => {
-              console.log('min year');
-            }}
+            data={yearsData}
+            value={minYear}
+            onChange={this.onChangeMinYear}
           />
 
           <DropdownComponent
             labelText={"Max Year"}
-            data={{yearsData}}
-            onChange={() => {
-              console.log('max year');
-            }}
+            data={yearsData}
+            value={maxYear}
+            onChange={this.onChangeMaxYear}
           />
         </div>
       </Element>
