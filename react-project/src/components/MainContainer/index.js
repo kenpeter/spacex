@@ -2,20 +2,16 @@
 import React from 'react';
 import Filter from '../../containers/Filter';
 import BodyContent from '../../containers/BodyContent';
+import Banner from '../../components/Banner';
 
 const MainContainer = () => {
   return (
     <div className="mainContainer">
-      <div className="banner">
-        <img src={process.env.PUBLIC_URL + '/space-photo.jpeg'} />
-        <div className="topLeft">SPACE SAVVY</div>
-        <div className="centered">Discover Space Missions</div>
-      </div>
+      <Banner />
       <div className="bodyContainer">
         <div className="bodySelf">
           <Filter />
           <BodyContent />
-          <h1>bla</h1>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 class BodyContent extends Component {
   render() {
-    return <div>body content</div>
+    return <div className="bodyContent">body content</div>
   }
 }
 

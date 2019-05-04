@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 class FilterContainer extends Component {
   render() {
-    return <div>filter container</div>
+    return <div className="filter">filter container</div>
   }
 }
 
