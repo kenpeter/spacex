@@ -8,6 +8,7 @@ import { getLaunchYearsAPI } from '../../reducers/launchYears';
 import { loadLaunchesAPI } from '../../reducers/launches';
 import InputComponent from '../../components/InputComponent';
 import DropdownComponent from '../../components/DropdownComponent';
+import ApplyButton from '../../components/ApplyButton';
 
 class Filter extends Component {
   constructor(props) {
@@ -79,7 +80,7 @@ class Filter extends Component {
           {isError === false ? 
             '' 
             : 
-            <p style={{backgroundColor: 'red'}}>{errors}</p>
+            <div className="errors">{errors}</div>
           }
 
           <InputComponent
@@ -109,7 +110,7 @@ class Filter extends Component {
             onChange={this.onChangeMaxYear}
           />
 
-          <button onClick={this.onApply}>Apply</button>
+          <ApplyButton onApply={this.onApply} />
         </div>
       </Element>
     );
