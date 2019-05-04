@@ -45,6 +45,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+.mainContainer {
+  background-color: #EAEDF1;
+}
+
 .banner {
   position: relative;
   color: white;
@@ -80,9 +84,15 @@ body {
   position: absolute;
   bottom: 10%;
   left: 50%;
+  cursor: pointer;
 }
 
 .banner .arrowDown {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.bodyContainer {
+  /* need to go up */
+  /*margin-top: -3px;*/
 }
