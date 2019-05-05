@@ -65,6 +65,7 @@ body {
 .filter {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   background-color: #f9fafa;
   padding: 20px;
 }
@@ -85,7 +86,7 @@ body {
 }
 
 .filter .applyButtonContainer {
-  width: 100px;
+  //width: 100px;
 }
 
 .filter .keywordMain {
@@ -112,7 +113,7 @@ body {
 }
 
 .filter .applyButtonMain {
-  flex-grow: 1;
+  //flex-grow: 1;
   padding-right: 20px;
 }
 
