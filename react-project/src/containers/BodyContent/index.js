@@ -106,7 +106,7 @@ class BodyContent extends Component {
     return (
       <div className="bodyContent">
         {launchesData.length <= 0 ? 
-          <p>loading....</p>
+          <p className="noResult">No result</p>
           :
           this.buildList(launchesData)
         }

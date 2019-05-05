@@ -168,6 +168,10 @@ body {
   padding: 20px;
 }
 
+.bodyContent .noResult {
+  text-align: center;
+}
+
 .bodyContent .resultCount {
   text-align: center;
   color: #a7b0b2;
@@ -188,8 +192,9 @@ body {
 }
 
 .bodyContent .item .itemImg {
-  flex-grow: 2;
-  width: 16.66%;
+  //flex-grow: 2;
+  //width: 16.66%;
+  width: 100px;
 }
 
 .bodyContent .item .itemContent {
