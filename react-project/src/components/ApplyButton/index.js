@@ -7,7 +7,9 @@ const ApplyButton = ({
 }) => {
   return (
     <div className={'applyButtonContainer ' + mainClass}>
-      <div>&nbsp;</div>
+      <div className="labelText">
+        &nbsp;
+      </div>
       <button className="applyButton" onClick={onApply}>Apply</button>
     </div>
   );

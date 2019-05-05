@@ -69,19 +69,38 @@ body {
   padding: 20px;
 }
 
+@media screen and (min-width: 810px) {
+  .filter {
+    justify-content: space-around;
+  }
+}
+
+/* input */
 .filter .inputComponent {
   min-width: 150px;
   max-width: 200px;
 }
 
-.filter .inputComponent input {
-  width: 100%;
-  height: 27px;
+.filter .inputComponent .labelText {
+  padding-bottom: 5px;
 }
 
+.filter .inputComponent input {
+  width: 100%;
+  height: 26px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1px 1px 1px 5px;
+}
+
+/* drop down */
 .filter .dorpdownComponent {
   min-width: 110px;
   max-width: 200px;
+}
+
+.filter .dorpdownComponent .labelText {
+  padding-bottom: 5px;
 }
 
 .filter .keywordMain {
@@ -107,16 +126,11 @@ body {
   padding-right: 20px;
 }
 
-.filter .applyButtonMain {
-  //flex-grow: 1;
-  //padding-right: 20px;
-}
-
 .filter select {
   -moz-appearance:none; /* Firefox */
   -webkit-appearance:none; /* Safari and Chrome */
   -webkit-border-radius: 0;
-  border-radius: 0;
+  border-radius: 3px;
   appearance:none;
   background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   background-repeat: no-repeat;
@@ -140,8 +154,6 @@ body {
   background-color: #2dbaba;
 }
 
-@media screen and (min-width: 810px) {
-  .filter {
-    justify-content: space-around;
-  }
+.filter .applyButtonContainer .labelText {
+  padding-bottom: 5px;
 }
