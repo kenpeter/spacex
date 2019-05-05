@@ -32,26 +32,6 @@ const getLaunchYearsHandler = (req, resp) => {
   return resp(data);
 }
 
-/*
-* 4 filters match
-http://localhost:8001/launchAndPad?keyword=Intelsat&launchpadId=ksc_lc_39a&minYear=2006&maxYear=2017
-
-* keyword not match, 3 match
-http://localhost:8001/launchAndPad?keyword=Intelsat4&launchpadId=ksc_lc_39a&minYear=2006&maxYear=2017
-
-* not keyword, 3 match
-http://localhost:8001/launchAndPad?keyword=&launchpadId=ksc_lc_39a&minYear=2006&maxYear=2017
-http://localhost:8001/launchAndPad?keyword=''&launchpadId=ksc_lc_39a&minYear=2006&maxYear=2017
-http://localhost:8001/launchAndPad?launchpadId=ksc_lc_39a&minYear=2006&maxYear=2017
-
-* year only
-http://localhost:8001/launchAndPad?launchpadId=ksc_lc_39a&minYear=2017&maxYear=2018
-http://localhost:8001/launchAndPad?launchpadId=ksc_lc_39a&minYear=2017
-http://localhost:8001/launchAndPad?launchpadId=ksc_lc_39a&minYear=2018
-
-* flight number
-http://localhost:8001/launchAndPad?keyword=10
-*/
 const getLaunchAndPadHandler = (req, resp) => {
   console.log('GET /launchAndPad');
 
@@ -69,19 +49,6 @@ const getLaunchAndPadHandler = (req, resp) => {
 };
 
 const uniqueLaunchPadFullNames = () => {
-  /*
-  let out = [];
-  const pad = launchpads;
-  for (let i = 0; i < pad.length; i += 1) {
-    let item = {
-      key: pad[i].id,
-      val: pad[i].full_name
-    };
-    out = [...new Set([...out, item])];
-  }
-  return out;
-  */
-
   let out = [];
   const pad = launchpads;
   const map = new Map();
