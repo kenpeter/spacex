@@ -50,7 +50,7 @@ class Filter extends Component {
   }
 
   onApply = () => {
-    const { keyword, launchpadId, minYear, maxYear } = this.state;
+    const { minYear, maxYear } = this.state;
     const { loadLaunchesAPIProps } = this.props;
 
     if(minYear !== '' && maxYear !== '' && minYear > maxYear) {

@@ -7,6 +7,10 @@ body {
   font-size: 70%;
 }
 
+.missionErrors {
+  color: #e46b84;
+}
+
 .mainContainer {
   background-color: #EAEDF1;
 }
@@ -156,4 +160,26 @@ body {
 
 .filter .applyButtonContainer .labelText {
   padding-bottom: 5px;
+}
+
+.bodyContent {
+  border-top: 1px solid #d5d9de;
+  background-color: white;
+  padding: 20px;
+}
+
+.bodyContent .resultCount {
+  text-align: center;
+  color: #a7b0b2;
+  font-size: 80%;
+}
+
+.bodyContent .itemImg img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.bodyContent .item {
+  display: flex;
 }
