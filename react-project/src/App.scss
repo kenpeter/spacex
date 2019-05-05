@@ -182,4 +182,53 @@ body {
 
 .bodyContent .item {
   display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
 }
+
+.bodyContent .item .itemImg {
+  flex-grow: 2;
+  width: 16.66%;
+}
+
+.bodyContent .item .itemContent {
+  flex-grow: 7;
+  width: 58.31%;
+}
+
+.bodyContent .item .itemNum {
+  flex-grow: 3;
+  width: 24.99%;
+}
+
+.bodyContent .item .itemTags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bodyContent .item .itemDesc {
+  font-size: 80%;
+}
+
+.bodyContent .itemTags .tag {
+  border: 1px solid #e9ecef;
+  padding: 5px;
+  margin-top: 15px;
+  margin-right: 5px;
+  font-size: 80%;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.bodyContent .item .itemNumWrap {
+  text-align: center;
+  float: right;
+}
+
+.bodyContent .item .itemNumText {
+  font-size: 80%;
+}
+

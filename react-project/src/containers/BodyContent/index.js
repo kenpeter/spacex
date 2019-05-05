@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable import/no-named-default */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadLaunchesAPI } from '../../reducers/launches';
-import { getDate, getTime } from '../../helper/helper';
+import { getDate, getTime, translateLinkName } from '../../helper/helper';
 
 class BodyContent extends Component {
   constructor(props) {
@@ -25,6 +26,26 @@ class BodyContent extends Component {
       maxYear: ''
     }
     loadLaunchesAPIProps(obj);
+  }
+
+  buildTags = (obj) => {
+    let out = [];
+    for (let key in obj) {
+      let link = obj[key];
+
+      if(key === 'mission_patch')
+        continue;
+
+      if(link === null)
+        continue;
+
+      out.push(
+        <div className="tag" key={key}>
+          <a href={link} target="_blank">{translateLinkName(key)}</a>
+        </div>
+      )
+    }
+    return out;
   }
 
   buildList = (data) => {
@@ -53,15 +74,23 @@ class BodyContent extends Component {
                   </div>
 
                   <div className="itemDesc">
-                    Launched {getDate(item.launch_date_local)} at {getTime(item.launch_date_local)} from xxxx
+                    Launched {getDate(item.launch_date_local)} at {getTime(item.launch_date_local)} from {item.launchpad.full_name}
                   </div>
 
                   <div className="itemTags">
+                    {this.buildTags(item.links)}
                   </div>
                 </div>
 
                 <div className="itemNum">
-
+                  <div className="itemNumWrap">
+                    <div className="itemNumActual">
+                      #{item.flight_number}
+                    </div>
+                    <div className="itemNumText">
+                      Flight Number
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -72,7 +101,6 @@ class BodyContent extends Component {
   }
 
   render() {
-    console.log(this.props.launchesData);
     const { launchesData } = this.props;
 
     return (

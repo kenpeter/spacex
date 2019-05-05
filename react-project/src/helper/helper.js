@@ -11,6 +11,27 @@ export const getTime = (input) => {
   return obj.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'});
 }
 
+export const translateLinkName = (input) => {
+  switch(input) {
+    case 'reddit_campaign':
+      return 'Reddit Campaign';
+    case 'reddit_launch':
+      return 'Reddit Launch';
+    case 'reddit_recovery':
+      return 'Reddit Recovery';
+    case 'reddit_media':
+      return 'Reddit Media';
+    case 'presskit':
+      return 'Press Kit';
+    case 'article_link':
+      return 'Article';
+    case 'video_link':
+      return 'Watch Video';
+    default:
+      return '';
+  }
+}
+
 const getDateUnit = (num) => {
   num = '' + num;
   const lastChar = num[num.length-1];
