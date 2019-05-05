@@ -74,7 +74,7 @@ class BodyContent extends Component {
                   </div>
 
                   <div className="itemDesc">
-                    Launched {getDate(item.launch_date_local)} at {getTime(item.launch_date_local)} from {item.launchpad.full_name}
+                    Launched <span className="hightlight">{getDate(item.launch_date_local)}</span> at <span className="hightlight">{getTime(item.launch_date_local)}</span> from <span className="hightlight">{item.launchpad.full_name}</span>
                   </div>
 
                   <div className="itemTags">

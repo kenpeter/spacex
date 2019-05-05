@@ -202,6 +202,10 @@ body {
   width: 58.31%;
 }
 
+.bodyContent .item .itemTitle {
+  color: #384047;
+}
+
 .bodyContent .item .itemNum {
   flex-grow: 3;
   width: 24.99%;
@@ -215,16 +219,24 @@ body {
 .bodyContent .item .itemDesc {
   margin-top: 10px;
   font-size: 80%;
+  color: #a2acae;
+
+  .hightlight {
+    color: #7b8b8e;
+  }
 }
+
+
 
 .bodyContent .itemTags .tag {
   border: 1px solid #e9ecef;
-  padding: 5px;
+  padding: 5px 15px 5px 15px;
   margin-top: 15px;
   margin-right: 7px;
   font-size: 80%;
 
   a {
+    color: #a2acae;
     text-decoration: none;
   }
 }
