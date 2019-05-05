@@ -1,7 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 
-const DropdownComponent = ({ labelText, data, value, onChange }) => {
+const DropdownComponent = ({ 
+  labelText, 
+  data, 
+  value, 
+  onChange, 
+  isError=false, errors='' }
+) => {
   const buildLayout = data => {
     const res = data.map((item) => {
       return (
@@ -23,6 +29,11 @@ const DropdownComponent = ({ labelText, data, value, onChange }) => {
         <option value="">Any</option>
         {buildLayout(data)}
       </select>
+      {isError === false ? 
+        '' 
+        : 
+        <div className="errors">{errors}</div>
+      }
     </div>
   );
 };

@@ -2,6 +2,11 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+.errors {
+  color: red;
+  font-size: 70%;
+}
+
 .mainContainer {
   background-color: #EAEDF1;
 }
@@ -49,8 +54,35 @@ body {
   -webkit-transform: rotate(45deg);
 }
 
+.bodyContainer {
+  padding: 20px 10px 10px 10px;
+}
+
+.bodySelf {
+  background-color: white;
+}
+
+/* input component */
+.inputComponent {
+  min-width: 150px;
+  max-width: 200px;
+}
+
+.inputComponent input {
+  width: 100%;
+}
+
+/* dropdown component */
+.dorpdownComponent {
+  min-width: 110px;
+  max-width: 200px;
+}
+
 .filter {
   display: flex;
+  justify-content: space-between;
+  background-color: #f9fafa;
+  padding: 20px;
 }
 
 .filter .inputComponent input {
@@ -72,8 +104,7 @@ body {
   //margin-right: 2rem;
   padding: 8px;
   //padding-right: 2rem;
-  min-width: 110px;
-  max-width: 200px;
+  width: 100%;
 }
 
 .filter select option {

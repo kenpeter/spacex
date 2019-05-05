@@ -77,12 +77,6 @@ class Filter extends Component {
     return (
       <Element name="scrollDestination" className="element">
         <div className="filter">
-          {isError === false ? 
-            '' 
-            : 
-            <div className="errors">{errors}</div>
-          }
-
           <InputComponent
             labelText={"Keywords"}
             placeHolderText={"eg Falcon"}
@@ -101,6 +95,8 @@ class Filter extends Component {
             data={yearsData}
             value={minYear}
             onChange={this.onChangeMinYear}
+            isError={isError}
+            errors={errors}
           />
 
           <DropdownComponent
