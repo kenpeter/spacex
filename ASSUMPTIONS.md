@@ -1,15 +1,12 @@
 # Assumptions
-
-[LIST ASSUMPTIONS HERE]
+* None
 
 # Still to do
-
-[LIST WHAT IS STILL TO DO HERE]
+* None
 
 # Changes to the starter project
+* 
 
-* sdf
-* dfdf
 
 
 
