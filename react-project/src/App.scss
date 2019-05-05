@@ -65,7 +65,6 @@ body {
 .filter {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   background-color: #f9fafa;
   padding: 20px;
 }
@@ -83,10 +82,6 @@ body {
 .filter .dorpdownComponent {
   min-width: 110px;
   max-width: 200px;
-}
-
-.filter .applyButtonContainer {
-  //width: 100px;
 }
 
 .filter .keywordMain {
@@ -114,7 +109,7 @@ body {
 
 .filter .applyButtonMain {
   //flex-grow: 1;
-  padding-right: 20px;
+  //padding-right: 20px;
 }
 
 .filter select {
@@ -143,4 +138,10 @@ body {
   font-weight: 600;
   color: white;
   background-color: #2dbaba;
+}
+
+@media screen and (min-width: 810px) {
+  .filter {
+    justify-content: space-around;
+  }
 }
