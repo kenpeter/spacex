@@ -75,47 +75,45 @@ class Filter extends Component {
     const { launchpadId, minYear, maxYear, isError, errors } = this.state;
 
     return (
-      <Element name="scrollDestination" className="element">
-        <div className="filter">
-          <InputComponent
-            mainClass={"keywordMain"}
-            labelText={"Keywords"}
-            placeHolderText={"eg Falcon"}
-            onChange={this.onChangeKeyword}
-          />
+      <div className="filter">
+        <InputComponent
+          mainClass={"keywordMain"}
+          labelText={"Keywords"}
+          placeHolderText={"eg Falcon"}
+          onChange={this.onChangeKeyword}
+        />
 
-          <DropdownComponent
-            mainClass={"launchpadMain"}
-            labelText={"Launch Pad"}
-            data={fullNameData}
-            value={launchpadId}
-            onChange={this.onChangeLaunchpadId}
-          />
+        <DropdownComponent
+          mainClass={"launchpadMain"}
+          labelText={"Launch Pad"}
+          data={fullNameData}
+          value={launchpadId}
+          onChange={this.onChangeLaunchpadId}
+        />
 
-          <DropdownComponent
-            mainClass={"minYearMain"}
-            labelText={"Min Year"}
-            data={yearsData}
-            value={minYear}
-            onChange={this.onChangeMinYear}
-            isError={isError}
-            errors={errors}
-          />
+        <DropdownComponent
+          mainClass={"minYearMain"}
+          labelText={"Min Year"}
+          data={yearsData}
+          value={minYear}
+          onChange={this.onChangeMinYear}
+          isError={isError}
+          errors={errors}
+        />
 
-          <DropdownComponent
-            mainClass={"maxYearMain"}
-            labelText={"Max Year"}
-            data={yearsData}
-            value={maxYear}
-            onChange={this.onChangeMaxYear}
-          />
+        <DropdownComponent
+          mainClass={"maxYearMain"}
+          labelText={"Max Year"}
+          data={yearsData}
+          value={maxYear}
+          onChange={this.onChangeMaxYear}
+        />
 
-          <ApplyButton
-            mainClass={"applyButtonMain"} 
-            onApply={this.onApply} 
-          />
-        </div>
-      </Element>
+        <ApplyButton
+          mainClass={"applyButtonMain"} 
+          onApply={this.onApply} 
+        />
+      </div>
     );
   }
 }
