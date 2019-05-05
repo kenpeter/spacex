@@ -1,13 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 
-const DropdownComponent = ({ 
+const DropdownComponent = ({
+  mainClass='',
   labelText, 
   data, 
   value, 
   onChange, 
-  isError=false, errors='' }
-) => {
+  isError=false, 
+  errors='' 
+}) => {
   const buildLayout = data => {
     const res = data.map((item) => {
       return (
@@ -21,7 +23,7 @@ const DropdownComponent = ({
   };
 
   return (
-    <div className="dorpdownComponent">
+    <div className={'dorpdownComponent ' + mainClass}>
       <div className="labelText">
         {labelText}
       </div>

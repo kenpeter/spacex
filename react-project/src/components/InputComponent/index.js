@@ -1,9 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 
-const InputComponent = ({ labelText, placeHolderText, onChange }) => {
+const InputComponent = ({ 
+  mainClass='',
+  labelText, 
+  placeHolderText, 
+  onChange 
+}) => {
   return (
-    <div className="inputComponent">
+    <div className={'inputComponent ' + mainClass}>
       <div className="labelText">
         {labelText}
       </div>

@@ -78,12 +78,14 @@ class Filter extends Component {
       <Element name="scrollDestination" className="element">
         <div className="filter">
           <InputComponent
+            mainClass={"keywordMain"}
             labelText={"Keywords"}
             placeHolderText={"eg Falcon"}
             onChange={this.onChangeKeyword}
           />
 
           <DropdownComponent
+            mainClass={"launchpadMain"}
             labelText={"Launch Pad"}
             data={fullNameData}
             value={launchpadId}
@@ -91,6 +93,7 @@ class Filter extends Component {
           />
 
           <DropdownComponent
+            mainClass={"minYearMain"}
             labelText={"Min Year"}
             data={yearsData}
             value={minYear}
@@ -100,13 +103,17 @@ class Filter extends Component {
           />
 
           <DropdownComponent
+            mainClass={"maxYearMain"}
             labelText={"Max Year"}
             data={yearsData}
             value={maxYear}
             onChange={this.onChangeMaxYear}
           />
 
-          <ApplyButton onApply={this.onApply} />
+          <ApplyButton
+            mainClass={"applyButtonMain"} 
+            onApply={this.onApply} 
+          />
         </div>
       </Element>
     );

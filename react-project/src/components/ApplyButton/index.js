@@ -1,9 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 
-const ApplyButton = ({onApply}) => {
+const ApplyButton = ({
+  mainClass,
+  onApply
+}) => {
   return (
-    <div className="applyButtonContainer">
+    <div className={'applyButtonContainer ' + mainClass}>
       <div>&nbsp;</div>
       <button className="applyButton" onClick={onApply}>Apply</button>
     </div>
