@@ -59,7 +59,7 @@ class BodyContent extends Component {
             return (
               <div className="item" key={index}>
                 <div className="itemImg">
-                  <img src={item.links.mission_patch} alt="" />
+                  <img src={item.links.mission_patch} alt={item.payloads[0].payload_id} />
                 </div>
 
                 <div className="itemContent">
