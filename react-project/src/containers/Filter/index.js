@@ -1,7 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable import/no-named-default */
 import React, { Component } from 'react';
-import { Element } from 'react-scroll';
 import { connect } from 'react-redux';
 import { getLaunchPadFullNamesAPI } from '../../reducers/launchPadFullNames';
 import { getLaunchYearsAPI } from '../../reducers/launchYears';

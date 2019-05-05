@@ -101,10 +101,16 @@ class BodyContent extends Component {
   }
 
   render() {
-    const { launchesData } = this.props;
+    const { launchesData, loading } = this.props;
 
     return (
       <div className="bodyContent">
+        {loading ? 
+          <p className="loading">Loading....</p>
+          :
+          ''
+        }
+
         {launchesData.length <= 0 ? 
           <p className="noResult">No result</p>
           :
@@ -117,7 +123,8 @@ class BodyContent extends Component {
 
 const mapStateToProps = state => {
   return {
-    launchesData: state.launchesReducer.data
+    launchesData: state.launchesReducer.data,
+    loading: state.launchesReducer.loading
   };
 };
 
