@@ -213,6 +213,7 @@ body {
 }
 
 .bodyContent .item .itemDesc {
+  margin-top: 10px;
   font-size: 80%;
 }
 
@@ -237,3 +238,14 @@ body {
   font-size: 80%;
 }
 
+.footer {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: #a8b1b3;
+  font-size: 80%;
+}
+
+.footer .backToTop {
+  cursor: pointer;
+}
